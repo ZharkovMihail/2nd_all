@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+void plus_(float **ar, int c, int change, float k,int n){
+	for (int i = 0; i<n + 1; ++i) {
+		ar[i][change] = ar[i][change] + k*ar[i][c];
+	}
+}
+int main(){
+	int n, x;
+	cin >> n;
+	//cin >> m;
+	float** ar = new float*[n + 1];
+	for (int i = 0; i < n; ++i) {
+		ar[i] = new float[n];
+	}
+	for (int i = 0; i<n+1; ++i) {
+		for (int j = 0; j<n; ++j) {
+			cin >> x;
+			ar[i][j] = x;
+		}
+	}	
+	for (int i = 0; i<n + 1; ++i) {	
+		for (int j = 0; j<n; ++j) {
+			int c = 0;
+			float k = 0;
+			if (ar[i][j] == 0){
+				if (ar[i][j + c] != 0){
+
+				}
+				else{
+					c++;
+				}
+			}
+			c = 1;
+			if (ar[i][j] != 0){
+				while (c + j <= n){
+					if (ar[i][j + c] != 0){
+						k = -ar[i][j + c] / ar[i][j];
+						plus_(ar, j, j + c, k, n);				
+					}
+					c++;
+				}
+			}		
+		}
+	}
+	return 0;
+}

@@ -1,0 +1,1 @@
+void quickSortR(les* a, int N);
